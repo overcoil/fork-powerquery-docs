@@ -111,7 +111,7 @@ To generate log files for the ODBC driver (which requires administrative access)
     LogPath=c:\Logging\PBI-Spark
     ```
   
-    Here, the log level has been set to 6 (``LOG_TRACE``) which is the most detailed/verbose. Log files will be saved to a directory ``c:\Logging\PBI-Spark``. See [here](http://simba.wpengine.com/products/Spark/doc/ODBC_InstallGuide/win/content/odbc/options/loglevel.htm) for details.
+    Here, the log level has been set to 6 (``LOG_TRACE``) which is the most detailed/verbose. Log files will be saved to a directory ``c:\Logging\PBI-Spark``. (See [here](http://simba.wpengine.com/products/Spark/doc/ODBC_InstallGuide/win/content/odbc/options/loglevel.htm) for details. Note that the log files generated here for PowerBI are named with the prefix of ``microsoftsparkodbcdriver``.)
 3. Create the directory ``c:\Logging\PBI-Spark``.
 4. Restart PowerBI Desktop.
 
