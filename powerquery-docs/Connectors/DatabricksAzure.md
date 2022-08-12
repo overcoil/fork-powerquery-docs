@@ -75,3 +75,43 @@ To connect to Databricks from Power Query Online, take the following steps:
 4. Once you successfully connect, the **Navigator** appears and displays the data available on the server. Select your data in the navigator. Then select **Next** to transform the data in Power Query.
 
     ![Image of Power Query navigator loading Databricks Cloud data to online app.](./media/databricksazure/pq-choose-data.png)
+
+
+## Known Issues
+
+This section describes limitations or considerations of the Azure Databricks connector.
+
+### Proxy Setup
+
+TODO: lorem ipsum
+
+Create a driver setting file as follows (which requires administrative access):
+1. Navigate to PowerBI's private copy of the Spark ODBC driver. This is located typically at ``C:\Program Files\Microsoft Power BI Desktop\bin\ODBC Drivers\Simba Spark ODBC Driver`` for 64-bit PowerBI Desktop. 
+2. Create a text file at this location using Notepad with the name ``microsoft.sparkodbc.ini`` with the following content:
+    ```
+    [Driver]
+    CheckCertRevocation=0
+    ```
+3. Restart PowerBI Desktop.
+
+### Long Running Query timeout in Azure AD environment
+
+### 
+
+## Troubleshooting
+
+### ODBC Driver Log File
+
+To generate log files for the ODBC driver (which requires administrative access):
+1. Navigate to PowerBI's private copy of the Spark ODBC driver. This is located typically at ``C:\Program Files\Microsoft Power BI Desktop\bin\ODBC Drivers\Simba Spark ODBC Driver`` for 64-bit PowerBI Desktop. (Note this setting applies to PowerBI's Spark driver and not to any other that may be installed in the system.)
+2. Create a text file at this location using Notepad with the name ``microsoft.sparkodbc.ini`` with the following content:
+    ```
+    [Driver]
+    LogLevel=6
+    LogPath=c:\Logging\PBI-Spark
+    ```
+  
+    Here, the log level has been set to 6 (``LOG_TRACE``) which is the most detailed/verbose. Log files will be saved to a directory ``c:\Logging\PBI-Spark``. See [here](http://simba.wpengine.com/products/Spark/doc/ODBC_InstallGuide/win/content/odbc/options/loglevel.htm) for details.
+3. Create the directory ``c:\Logging\PBI-Spark``.
+4. Restart PowerBI Desktop.
+
